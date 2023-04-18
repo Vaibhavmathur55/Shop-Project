@@ -20,14 +20,6 @@ const {doubleCsrfProtection} = doubleCsrf({
   getTokenFromRequest: (req) => req.body.csrfToken
 })
 
-
-app.post('/signup', doubleCsrfProtection, (req, res) => {
-  // Handle the request here
-  res.locals.doubleCsrfToken = req.csrfToken();
-  res.setHeader('__Host-psifi.x-csrf-token', res.locals.doubleCsrfToken);
-  res.send('Response');
-});
-
 const mongoStore = new MongoDBStore({
     //Requires connection string to know on which database server to store data
     uri: 'mongodb+srv://mathurvidhi2505:%24VidhiM%4025@cluster0.mjodwc6.mongodb.net/shop',
